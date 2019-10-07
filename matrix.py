@@ -1,14 +1,10 @@
 print("split lists using commas")
-print("""
- the functions in this module are:
-  totalsum, det, rref
-""")
 
-def _enter_matrix():
+def __enter_matrix():
   return [[float(i) for i in input("Enter Row of Matrix: ").split(",")] for j in range(int(input("Number of Rows: ")))]
 
 def totalsum():
-  m = _enter_matrix()
+  m = __enter_matrix()
   r = 0
   for i in range(len(m)):
     for j in range(len(m[i])):
@@ -19,7 +15,7 @@ def totalsum():
 # works for 2 x 2 and 3 x 3 matrices
 def det():
   print("row must be 2 or 3")
-  m = _enter_matrix()
+  m = __enter_matrix()
   r = 0
   if len(m) == 2:
     r = m[0][0]*m[1][1] - m[0][1]*m[1][0]
@@ -28,7 +24,7 @@ def det():
   print(r)
 
 def rref():
-  m = _enter_matrix()
+  m = __enter_matrix()
 
   if not m: return
   l = 0
