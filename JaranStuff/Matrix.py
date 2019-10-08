@@ -1,10 +1,10 @@
-def __enterMatrix():
+def __enter_matrix():
     return [[float(i) for i in input("Enter Row " + str(j + 1) + ": ").split(" ")] for j in
             range(int(input("Enter Number of Rows: ")))]
 
 
-def cumsum():
-    m = __enterMatrix()
+def cum_sum():
+    m = __enter_matrix()
     a = int(input("Enter Axis (0 is default): "))
     r = 0
     for i in range(len(m)):
@@ -19,7 +19,7 @@ def cumsum():
 
 
 def det():
-    m = __enterMatrix()
+    m = __enter_matrix()
     if len(m) == 2:
         r = m[0][0] * m[1][1] - m[0][1] * m[1][0]
         print(r)
@@ -30,32 +30,32 @@ def det():
 
 
 def rref():
-    def rref(M):
-        if not M: return
+    def rref(m):
+        if not m: return
         l = 0
-        rC = len(M)
-        cC = len(M[0])
-        for r in range(rC):
-            if l >= cC:
+        rc = len(m)
+        cc = len(m[0])
+        for r in range(rc):
+            if l >= cc:
                 return
             i = r
-            while M[i][l] == 0:
+            while m[i][l] == 0:
                 i += 1
-                if i == rC:
+                if i == rc:
                     i = r
                     l += 1
-                    if cC == l:
+                    if cc == l:
                         return
-            M[i], M[r] = M[r], M[i]
-            lv = M[r][l]
-            M[r] = [mrx / float(lv) for mrx in M[r]]
-            for i in range(rC):
+            m[i], m[r] = m[r], m[i]
+            lv = m[r][l]
+            m[r] = [mrx / float(lv) for mrx in m[r]]
+            for i in range(rc):
                 if i != r:
-                    lv = M[i][l]
-                    M[i] = [iv - lv * rv for rv, iv in zip(M[r], M[i])]
+                    lv = m[i][l]
+                    m[i] = [iv - lv * rv for rv, iv in zip(m[r], m[i])]
             l += 1
 
-    m = __enterMatrix()
+    m = __enter_matrix()
     rref(m)
     for rw in m:
-        print((", ").join((str(rv) for rv in rw)))
+        print(", ".join((str(rv) for rv in rw)))
