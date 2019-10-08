@@ -1,7 +1,10 @@
-from input_handler import __input_eval as enput
+from input_handler import __input_eval as enput, __input_list as enput_list
 
 def __enter_matrix():
-    return [[float(i) for i in input("Enter Row of Matrix: ").split(",")] for j in range(int(input("Number of Rows: ")))]
+    matrix = []
+    for _ in range(enput("number of rows: ", int)):
+        matrix.append(enput_list("enter row: ", float))
+    return matrix
 
 def total_sum():
     m = __enter_matrix()
