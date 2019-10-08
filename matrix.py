@@ -1,5 +1,3 @@
-print("split lists using commas")
-
 def __enter_matrix():
   return [[float(i) for i in input("Enter Row of Matrix: ").split(",")] for j in range(int(input("Number of Rows: ")))]
 
