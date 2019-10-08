@@ -4,8 +4,7 @@ evaluated_types = [
 
 # out is the message right before the input, t is the type the input should be cast as
 def __input_eval(out, t):
-    raw = input(out)
-    out = raw
+    data = input(out)
     if t in evaluated_types:
-        out = eval(out)
-    return t(out)
+        data = eval(data)
+    return t(data)

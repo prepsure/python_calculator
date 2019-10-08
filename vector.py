@@ -1,4 +1,5 @@
 from math import pi, radians, degrees, cos, sin, atan2, sqrt
+from input_handler import __input_eval as enput
 
 def __enter_vector():
     print("press 1 for unit vector\n2 for mag and direction")

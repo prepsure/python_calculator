@@ -1,7 +1,9 @@
+from input_handler import __input_eval as enput
+
 def __enter_matrix():
   return [[float(i) for i in input("Enter Row of Matrix: ").split(",")] for j in range(int(input("Number of Rows: ")))]
 
-def totalsum():
+def total_sum():
   m = __enter_matrix()
   r = 0
   for i in range(len(m)):
@@ -18,7 +20,7 @@ def det():
   if len(m) == 2:
     r = m[0][0]*m[1][1] - m[0][1]*m[1][0]
   elif len(m) == 3:
-    r = m[0][0]*(m[1][1]*m[2][2] - m[1][2]*m[2][1]) - m[0][1]*(m[1][0]*m[2][2] - m[2][0]*m[1][2]) + m[0][2]*(m[1][0]*m[2][1] - m[1][1]*m[2][0])
+    r = m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]) - m[0][1] * (m[1][0] * m[2][2] - m[2][0] * m[1][2]) + m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0])
   print(r)
 
 def rref():
