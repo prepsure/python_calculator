@@ -1,4 +1,4 @@
-from math import radians, sqrt, degrees, atan2, sin, cos
+from math import radians, sqrt, degrees, atan2, sin, cos, acos
 from input_handler import __input_eval as enput, __input_list_eval as linput
 
 
@@ -19,9 +19,16 @@ def __printv(m):
     return "<%fi + %fj + %fk>" % (m[0], m[1], m[2] if len(m) == 3 else 0)
 
 
-def __give_angles(y, x):
+def __give_angles(x, y, z, d):
+  if d == 2:
     a = degrees(atan2(y, x))
     return "%f° or %f°" % (a, a + 360 if a < 0 else a - 360)
+  else:
+    mag=__find_mag([x,y,z])
+    ax=degrees(acos(x/mag))
+    ay=degrees(acos(y/mag))
+    az=degrees(acos(z/mag))
+    return "%f°(i), %f°(j), %f°(k)" % (ax, ay, az)
 
 
 def __find_mag(m):
@@ -56,4 +63,4 @@ def inf():
     else:
         print("Incorrect Vector Type")
     print("Resultant Vector:\n%s\nResultant Magnitude:\n%f\nResultant Angle:\n%s" % (
-    __printv(s), __find_mag(s), __give_angles(s[1], s[0]) if d == 2 else 0))
+    __printv(s), __find_mag(s), __give_angles(s[0], s[1], s[2], d)))
