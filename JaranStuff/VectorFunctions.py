@@ -3,7 +3,7 @@ from input_handler import __input_eval as enput, __input_list_eval as linput
 
 
 def __enter_vector(o):
-    return linput(o, float, " ")
+    return linput(o, float)
 
 
 def conv():
