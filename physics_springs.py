@@ -1,4 +1,4 @@
-# TODO make spring functions
+from input_handler import __input_eval as enput
 
 def work_from_velocity():
     vf = float(input("vf (m/s): "))
