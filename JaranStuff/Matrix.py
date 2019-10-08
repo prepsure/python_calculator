@@ -1,11 +1,13 @@
+from input_handler import __input_eval as enput, __input_list_eval as linput
+
+
 def __enter_matrix():
-    return [[float(i) for i in input("Enter Row " + str(j + 1) + ": ").split(" ")] for j in
-            range(int(input("Enter Number of Rows: ")))]
+    return [linput("Enter Row " + str(j + 1) + ": ", float, " ") for j in range(enput("Enter Number of Rows: ", int))]
 
 
 def cum_sum():
     m = __enter_matrix()
-    a = int(input("Enter Axis (0 is default): "))
+    a = enput("Enter Axis (0 is default): ", int)
     r = 0
     for i in range(len(m)):
         if a != 0 and i % a == 0:

@@ -1,20 +1,21 @@
 from math import cos, sin, radians, atan2, degrees, sqrt, acos
+from input_handler import __input_eval as enput, __input_list_eval as linput
 
 
 def __enter_vector(o):
-    return [float(i) for i in input(o + ":\n").split(" ")]
+    return linput(o, float, " ")
 
 
 def conv():
-    s = input("Converting from: ").lower()
-    t = input("To: ").lower()
+    s = enput("Converting from: ", str).lower()
+    t = enput("To: ", str).lower()
     if s[0] == "p" and (t[0] == "u" or t[0] == "v"):
-        m = float(input("Magnitude: "))
-        a = float(__prompta("Angle in Degrees: "))
+        m = enput("Magnitude: ", float)
+        a = __prompta("Angle in Degrees: ")
         print("<%fi %fj>" % (m * cos(radians(a)), m * sin(radians(a))))
     if (s[0] == "v" or s[0] == "u") and t[0] == "p":
-        x = float(input("x="))
-        y = float(input("y="))
+        x = enput("x=", float)
+        y = enput("y=", float)
         a = atan2(y, x)
         M = y / sin(a) if x == 0 else x / cos(a)
         print("Magnitude=%f\nAngle=%f" % (M, degrees(a)))
@@ -41,14 +42,14 @@ def angle(m1=None, m2=None):
     mag1 = __find_mag(m1)
     mag2 = __find_mag(m2)
     d = dot(m1, m2)
-    return degrees(acos((d) / (mag1 * mag2)))
+    return degrees(acos(d / (mag1 * mag2)))
 
 
 def __prompta(o):
-    a = input(o)
+    a = enput(o, str)
     angles = {"N": 90, "S": 270, "E": 0, "W": 180, "NE": 45, "NW": 135, "SE": 315, "SW": 225}
     try:
-        return angles[a.upper()]
+        return float(angles[a.upper()])
     except:
         return float(a)
 

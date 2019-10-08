@@ -1,17 +1,18 @@
 from math import radians, sqrt, degrees, atan2, sin, cos
+from input_handler import __input_eval as enput, __input_list_eval as linput
 
 
 def __prompta(o):
-    a = input(o)
-    A = {"N": 90, "S": 270, "E": 0, "W": 180, "NE": 45, "NW": 135, "SE": 315, "SW": 225}
+    a = enput(o, str)
+    angles = {"N": 90, "S": 270, "E": 0, "W": 180, "NE": 45, "NW": 135, "SE": 315, "SW": 225}
     try:
-        return A[a.upper()]
+        return float(angles[a.upper()])
     except:
         return float(a)
 
 
 def __enter_vector(o):
-    return [float(i) for i in input(o + ":\n").split(" ")]
+    return linput(o, float, " ")
 
 
 def __printv(m):
@@ -29,9 +30,9 @@ def __find_mag(m):
 
 def inf():
     operators = [1, -1]
-    n = int(input("Number of Vectors: "))
-    t = input("Type of Vector: ").lower()
-    o = operators["+-".index(input("Addition (+)\nor Subtraction (-): "))]
+    n = enput("Number of Vectors: ", int)
+    t = enput("Type of Vector: ", str).lower()
+    o = operators["+-".index(enput("Addition (+)\nor Subtraction (-): ", str))]
     i = 0
     s = [0, 0, 0]
     d = 0
@@ -47,8 +48,8 @@ def inf():
     elif t[0] == "p":
         d = 2
         while i < n:
-            m = float(input("Enter Magnitude: "))
-            a = radians(float(__prompta("Enter Angle in Degrees: ")))
+            m = enput("Enter Magnitude: ", float)
+            a = radians(__prompta("Enter Angle in Degrees: "))
             s[0] += (m * cos(a)) * (o if i != 0 else 1)
             s[1] += (m * sin(a)) * (o if i != 0 else 1)
             i += 1
