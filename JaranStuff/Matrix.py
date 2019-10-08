@@ -1,8 +1,8 @@
-from input_handler import __input_eval as enput, __input_list_eval as linput
+from input_handler import __input_eval as enput, __input_list_eval as linput, __input_list_list_eval as manput
 
 
 def __enter_matrix():
-    return [linput("Enter Row " + str(j + 1) + ": ", float, " ") for j in range(enput("Enter Number of Rows: ", int))]
+    return manput("Enter Row", "Enter Number of Rows", float)
 
 
 def cum_sum():
