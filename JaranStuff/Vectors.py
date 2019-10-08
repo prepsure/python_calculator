@@ -6,7 +6,7 @@ def __prompta(o):
     A = {"N": 90, "S": 270, "E": 0, "W": 180, "NE": 45, "NW": 135, "SE": 315, "SW": 225}
     try:
         return A[a.upper()]
-    finally:
+    except:
         return float(a)
 
 
