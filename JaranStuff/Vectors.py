@@ -12,7 +12,7 @@ def __prompta(o):
 
 
 def __enter_vector(o):
-    return linput(o, float, " ")
+    return linput(o, float)
 
 
 def __printv(m):
