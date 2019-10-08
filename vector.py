@@ -1,7 +1,5 @@
 from math import pi, radians, cos, sin, atan2, sqrt
 
-# takes a vector in unit from or magnitude and direction form
-# returns a vector in unit vector form
 def __enter_vector():
     print("press 1 for unit vector\n2 for mag and direction")
     choice = input("press 1 for unit vector\n2 for mag and direction:\n")
@@ -34,8 +32,8 @@ def to_unit():
 def to_mag_and_direction():
     v = __enter_unit_vector()
 
-    print("angle: " + atan2(v[1], v[0]))
-    print("magnitude: " + sqrt(v[0]**2 + v[1]**2))
+    print("angle: " + str(atan2(v[1], v[0])))
+    print("magnitude: " + str(sqrt(v[0]**2 + v[1]**2)))
 
 def cross():
     v1 = __enter_unit_vector()
