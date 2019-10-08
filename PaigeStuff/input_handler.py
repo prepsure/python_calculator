@@ -4,7 +4,7 @@ __evaluated_types = [
 
 __splitter = ","
 
-def __eval_that(string, t):
+def __eval_that(data, t):
     if t in __evaluated_types:
         data = eval(data)
     return t(data)

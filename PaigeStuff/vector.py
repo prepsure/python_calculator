@@ -1,14 +1,6 @@
 from math import pi, radians, degrees, cos, sin, atan2, sqrt
 from input_handler import __input_eval as enput, __input_list as enput_list
 
-def __enter_vector():
-    print("press 1 for unit vector\n2 for mag and direction")
-    choice = input("press 1 for unit vector\n2 for mag and direction:\n")
-    if choice == "1":
-        return __enter_unit_vector()
-    else:
-        return __enter_mag_and_angle()
-
 def __enter_unit_vector():
     return enput_list("enter vector: ", float)
 
@@ -23,6 +15,13 @@ def __enter_mag_and_angle():
     mag = enput("enter magnitude: ", float)
 
     return [mag * cos(angle), mag * sin(angle)]
+
+def __enter_vector():
+    choice = input("press 1 for unit vector\n2 for mag and direction:\n")
+    if choice == "1":
+        return __enter_unit_vector()
+    else:
+        return __enter_mag_and_angle()
 
 def to_unit():
     print(__enter_mag_and_angle())
