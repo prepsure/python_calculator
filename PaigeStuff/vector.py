@@ -1,5 +1,5 @@
 from math import pi, radians, degrees, cos, sin, atan2, sqrt
-from input_handler import __input_eval as enput
+from input_handler import __input_eval as enput, __input_list as enput_list
 
 def __enter_vector():
     print("press 1 for unit vector\n2 for mag and direction")
@@ -10,10 +10,7 @@ def __enter_vector():
         return __enter_mag_and_angle()
 
 def __enter_unit_vector():
-    vector = []
-    for n in input("enter vector: ").split(","):
-        vector.append(float(n))
-    return vector
+    return enput_list("enter vector: ", float)
 
 def __enter_mag_and_angle():
     angle = enput("enter angle: ", float)
