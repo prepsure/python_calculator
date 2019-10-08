@@ -16,8 +16,8 @@ def __enter_unit_vector():
     return vector
 
 def __enter_mag_and_angle():
-    angle = float(input("enter angle: "))
-    mag = float(input("enter magnitude: "))
+    angle = enput("enter angle: ", float)
+    mag = enput("enter magnitude: ", float)
 
     if angle >= 2 * pi or angle <= -2 * pi:
         angle = radians(angle)
