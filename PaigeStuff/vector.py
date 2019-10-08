@@ -2,11 +2,12 @@ from math import pi, radians, degrees, cos, sin, atan2, sqrt
 from input_handler import __input_eval as enput, __input_list as enput_list
 
 def __enter_vector():
-    print("press 1 for unit vector\n2 for mag and direction")
     choice = input("press 1 for unit vector\n2 for mag and direction:\n")
     if choice == "1":
+        global __enter_unit_vector
         return __enter_unit_vector()
     else:
+        global __enter_mag_and_angle
         return __enter_mag_and_angle()
 
 def __enter_unit_vector():
