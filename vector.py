@@ -17,13 +17,13 @@ def __enter_unit_vector():
 
 def __enter_mag_and_angle():
     angle = enput("enter angle: ", float)
-    mag = enput("enter magnitude: ", float)
-
-    if angle >= 2 * pi or angle <= -2 * pi:
+    if angle - 0.01 >= 2 * pi or angle + 0.01 <= -2 * pi: # comparing floats with an accuracy of 0.01
         angle = radians(angle)
         print("assuming degrees")
     else:
         print("assuming radians")
+
+    mag = enput("enter magnitude: ", float)
 
     return [mag * cos(angle), mag * sin(angle)]
 
@@ -32,7 +32,7 @@ def to_unit():
 
 def to_mag_and_direction():
     v = __enter_unit_vector()
-    angle = atan2(v[1], v[0])
+    angle = atan2(v[1], v[0]) # angle as radians
 
     print("angle:\n  " + str(degrees(angle)) + " deg\n  " + str(angle) + " rad")
     print("magnitude: " + str(sqrt(v[0]**2 + v[1]**2)))
