@@ -27,7 +27,7 @@ def __enter_mag_and_angle():
     return [mag * cos(angle), mag * sin(angle)]
 
 def to_unit():
-    return __enter_mag_and_angle()
+    print(__enter_mag_and_angle())
 
 def to_mag_and_direction():
     v = __enter_unit_vector()
@@ -45,8 +45,8 @@ def cross():
     print(crossed)
 
 def dot():
-    v1 = __enter_unit_vector()
-    v2 = __enter_unit_vector()
+    v1 = __enter_vector()
+    v2 = __enter_vector()
 
     dotted = sum(v1[i] * v2[i] for i in range(max(len(v1), len(v2))))
 
