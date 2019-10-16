@@ -3,7 +3,7 @@ from input_handler import __input_eval as enput
 
 def area():
     r = enput("Radius: ", float)
-    print("Area of the Cirle is\n%f" % (pi * r ** 2))
+    print("Area of the Circle is\n%f" % (pi * r ** 2))
 
 
 def circumference():
