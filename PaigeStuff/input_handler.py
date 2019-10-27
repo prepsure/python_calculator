@@ -17,7 +17,7 @@ def __input_eval(out, t):
 # out is the message right before the input for each repetition
 # t is the type the inputs should be cast as
 def __input_list(out, t):
-    data = []
+    given_list = []
     for n in input(out).split(__splitter):
-        data.append(__eval_that(n, t))
-    return data
+        given_list.append(__eval_that(n, t))
+    return given_list

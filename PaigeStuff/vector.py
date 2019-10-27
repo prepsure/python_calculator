@@ -50,3 +50,14 @@ def dot():
     dotted = sum(v1[i] * v2[i] for i in range(max(len(v1), len(v2))))
 
     print(dotted)
+
+def add_vectors():
+    v1 = __enter_vector()
+    v2 = __enter_vector()
+
+    vf = [v1[0] + v2[0], v1[1] + v2[1]]
+
+    angle = atan2(vf[1], vf[0]) # angle as radians
+
+    print("angle:\n  " + str(degrees(angle)) + " deg\n  " + str(angle) + " rad")
+    print("magnitude: " + str(sqrt(vf[0]**2 + vf[1]**2)))
