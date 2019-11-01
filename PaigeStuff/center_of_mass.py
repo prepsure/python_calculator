@@ -4,11 +4,15 @@ def __combine_com(dense = False):
     num_objs = enput("how many objects? ", int)
     objs_coords = []
     objs_mass = []
-    objs_dense = []
 
-    for i in range(0, num_objs):
+    for _ in range(0, num_objs):
         coords = enput_list("coordinates of object: ", float)
-        mass = enput("mass of object: ", float)
+        if not dense:
+            mass = enput("mass of object: ", float)
+        else:
+            volume = enput("volume of object: ", float)
+            density = enput("density of object: ", float)
+            mass = volume * density
         objs_coords.append(coords)
         objs_mass.append(mass)
 
@@ -23,8 +27,6 @@ def __combine_com(dense = False):
 
 def center_of_mass():
     __combine_com()
-    #unfinished
 
 def center_of_dense_mass():
-    __combine_com
-    #unfinished
+    __combine_com(True)
