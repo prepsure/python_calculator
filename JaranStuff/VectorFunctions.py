@@ -51,7 +51,7 @@ def __prompta(o):
     try:
         return float(angles[a.upper()])
     except:
-        return float(a)
+        return float(eval(a))
 
 
 def __printv(M):

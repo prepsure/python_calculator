@@ -8,7 +8,7 @@ def __prompta(o):
     try:
         return float(angles[a.upper()])
     except:
-        return float(a)
+        return float(eval(a))
 
 
 def __enter_vector(o):
@@ -20,14 +20,14 @@ def __printv(m):
 
 
 def __give_angles(x, y, z, d):
-  if d == 2:
-    a = degrees(atan2(y, x))
-    return "%f° or %f°" % (a, a + 360 if a < 0 else a - 360)
-  else:
-    mag=__find_mag([x,y,z])
-    ax=degrees(acos(x/mag))
-    ay=degrees(acos(y/mag))
-    az=degrees(acos(z/mag))
+    if d == 2:
+        a = degrees(atan2(y, x))
+        return "%f° or %f°" % (a, a + 360 if a < 0 else a - 360)
+    else:
+        mag = __find_mag([x,y,z])
+        ax = degrees(acos(x/mag))
+        ay = degrees(acos(y/mag))
+        az = degrees(acos(z/mag))
     return "%f°(i), %f°(j), %f°(k)" % (ax, ay, az)
 
 
@@ -40,10 +40,7 @@ def inf():
     n = enput("Number of Vectors: ", int)
     t = enput("Type of Vector: ", str).lower()
     o = operators["+-".index(enput("Addition (+)\nor Subtraction (-): ", str))]
-    i = 0
-    s = [0, 0, 0]
-    d = 0
-    m = []
+    i, s, d, m = 0, [0, 0, 0], 0, []
     if t[0] == "u" or t[0] == "v":
         while i < n:
             m.append(__enter_vector("Enter Vector"))
@@ -62,5 +59,7 @@ def inf():
             i += 1
     else:
         print("Incorrect Vector Type")
-    print("Resultant Vector:\n%s\nResultant Magnitude:\n%f\nResultant Angle:\n%s" % (
-    __printv(s), __find_mag(s), __give_angles(s[0], s[1], s[2], d)))
+    print("Resultant Vector:\n%s\nResultant Magnitude:\n%f\nResultant Angle:\n%s" % (__printv(s),
+                                                                                     __find_mag(s),
+                                                                                     __give_angles(s[0], s[1], s[2], d))
+          )

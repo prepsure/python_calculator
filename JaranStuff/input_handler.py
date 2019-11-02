@@ -6,7 +6,7 @@ __split = " "
 
 # out is the message right before the input, t is the type the input should be cast as
 def __input_eval(out, t):
-    data = input(out)
+    data = input(out+"\n")
     if t in __evaluated_types:
         data = eval(data)
     return t(data)
