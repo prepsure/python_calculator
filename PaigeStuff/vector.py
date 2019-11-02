@@ -8,7 +8,7 @@ def __enter_unit_vector():
 
 def __enter_mag_and_angle():
     angle = enput("enter angle: ", float)
-    if angle - 0.01 >= 2 * pi or angle + 0.01 <= -2 * pi: # comparing floats with an accuracy of 0.01
+    if angle - 0.01 >= 2 * pi or angle + 0.01 <= -2 * pi:  # comparing floats with an accuracy of 0.01
         angle = radians(angle)
         print("assuming degrees")
     else:
