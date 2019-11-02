@@ -16,8 +16,9 @@ programs for the numworks calculator for physics, calculus, and more.
   - tell your user what to input, don't assume they know
   - if giving an angle as an output, output in radians and degrees
 
-- if necessary, use enput and enput_list in your function for getting input
+- if necessary, use enput in your function for getting input
   - these functions evaluate the input so that mathemtical expressions are reduced to a single number
   - ex: if you wanted the volume as an input, someone might want to input 5*3*6, this would let them do that with no additional work on your end
+  - this can be gotten easily by putting `from input_handler import __input_eval as enput` at the top of your script
 
 - test your code before you commit
