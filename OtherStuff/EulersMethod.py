@@ -1,5 +1,6 @@
 from math import ceil
 
+
 def euler_step(dy_dx, initial_x, initial_y, steps, delta_x=0.00001, silent = False):
     """
     Performs `steps` steps of Euler's Method, starting at (`initial_x`, 
@@ -24,6 +25,7 @@ def euler_step(dy_dx, initial_x, initial_y, steps, delta_x=0.00001, silent = Fal
         y += delta_y
     if not silent: print([x,y])
     return y
+
 
 def euler(dy_dx, initial_x, initial_y, final_x, delta_x=0.00001, silent = False):
     """

@@ -1,5 +1,6 @@
 from input_handler import __input_eval as enput, __input_list as enput_list
 
+
 def __combine_com(dense = False):
     num_objs = enput("how many objects? ", int)
     objs_coords = []
@@ -25,8 +26,10 @@ def __combine_com(dense = False):
         cm /= total_mass
         print("cm: " + str(cm))
 
+
 def center_of_mass():
     __combine_com()
+
 
 def center_of_dense_mass():
     __combine_com(True)

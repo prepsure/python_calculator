@@ -1,8 +1,10 @@
 from math import pi, radians, degrees, cos, sin, atan2, sqrt
 from input_handler import __input_eval as enput, __input_list as enput_list
 
+
 def __enter_unit_vector():
     return enput_list("enter vector: ", float)
+
 
 def __enter_mag_and_angle():
     angle = enput("enter angle: ", float)
@@ -16,6 +18,7 @@ def __enter_mag_and_angle():
 
     return [mag * cos(angle), mag * sin(angle)]
 
+
 def __enter_vector():
     choice = input("press 1 for unit vector\n2 for mag and direction:\n")
     if choice == "1":
@@ -23,8 +26,10 @@ def __enter_vector():
     else:
         return __enter_mag_and_angle()
 
+
 def to_unit():
     print(__enter_mag_and_angle())
+
 
 def to_mag_and_direction():
     v = __enter_unit_vector()
@@ -32,6 +37,7 @@ def to_mag_and_direction():
 
     print("angle:\n  " + str(degrees(angle)) + " deg\n  " + str(angle) + " rad")
     print("magnitude: " + str(sqrt(v[0]**2 + v[1]**2)))
+
 
 def cross():
     v1 = __enter_unit_vector()
@@ -43,6 +49,7 @@ def cross():
     
     print(crossed)
 
+
 def dot():
     v1 = __enter_vector()
     v2 = __enter_vector()
@@ -50,6 +57,7 @@ def dot():
     dotted = sum(v1[i] * v2[i] for i in range(max(len(v1), len(v2))))
 
     print(dotted)
+
 
 def add_vectors():
     v1 = __enter_vector()

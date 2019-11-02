@@ -4,8 +4,9 @@ __evaluated_types = [
 
 __split = " "
 
-# out is the message right before the input, t is the type the input should be cast as
+
 def __input_eval(out, t):
+    """out is the message right before the input, t is the type the input should be cast as"""
     data = input(out+"\n")
     if t in __evaluated_types:
         data = eval(data)
@@ -24,4 +25,4 @@ def __input_list_eval(out, t):
 
 
 def __input_list_list_eval(out1, out2, t):
-  return [__input_list_eval(out1 + str(j + 1), float) for j in range(__input_eval(out2, int))]
+    return [__input_list_eval(out1 + str(j + 1), float) for j in range(__input_eval(out2, int))]
