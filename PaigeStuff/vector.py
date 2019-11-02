@@ -1,14 +1,14 @@
 from math import pi, radians, degrees, cos, sin, atan2, sqrt
-from input_handler import __input_eval as enput, __input_list as enput_list
+from input_handler import __input_eval as enput, __input_list_eval as linput
 
 
 def __enter_unit_vector():
-    return enput_list("enter vector: ", float)
+    return linput("enter vector: ", float)
 
 
 def __enter_mag_and_angle():
     angle = enput("enter angle: ", float)
-    if angle - 0.01 >= 2 * pi or angle + 0.01 <= -2 * pi:  # comparing floats with an accuracy of 0.01
+    if angle - 0.01 >= 2 * pi or angle + 0.01 <= -2 * pi: # comparing floats with an accuracy of 0.01
         angle = radians(angle)
         print("assuming degrees")
     else:

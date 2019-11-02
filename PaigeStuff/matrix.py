@@ -1,10 +1,10 @@
-from input_handler import __input_eval as enput, __input_list as enput_list
+from input_handler import __input_eval as enput, __input_list_eval as linput
 
 
 def __enter_matrix():
     matrix = []
     for _ in range(enput("number of rows: ", int)):
-        matrix.append(enput_list("enter row: ", float))
+        matrix.append(linput("enter row: ", float))
     return matrix
 
 
@@ -18,8 +18,8 @@ def total_sum():
     print(m)
 
 
+# works for 2 x 2 and 3 x 3 matrices
 def det():
-    # works for 2 x 2 and 3 x 3 matrices
     print("row must be 2 or 3")
     m = __enter_matrix()
     r = 0
