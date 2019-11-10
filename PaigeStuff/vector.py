@@ -69,7 +69,8 @@ def angle_between():
     v2 = __enter_vector()
     dot = __get_dot(v1, v2)
     angle = acos(dot/(__get_mag(v1) * __get_mag(v2)))
-    print(angle)
+    print("in radians: " + str(angle))
+    print("in degrees: " + str(degrees(angle)))
 
 
 def add_vectors():
