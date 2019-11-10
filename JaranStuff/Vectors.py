@@ -24,7 +24,7 @@ def __give_angles(x, y, z, d):
         a = degrees(atan2(y, x))
         return "%f° or %f°" % (a, a + 360 if a < 0 else a - 360)
     else:
-        mag = __find_mag([x,y,z])
+        mag = __find_mag([x, y, z])
         ax = degrees(acos(x/mag))
         ay = degrees(acos(y/mag))
         az = degrees(acos(z/mag))
