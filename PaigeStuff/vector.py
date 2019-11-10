@@ -28,7 +28,7 @@ def __enter_vector():
 
 
 def __get_mag(v):
-    return str(sqrt(v[0]**2 + v[1]**2))
+    return sqrt(v[0]**2 + v[1]**2)
 
 
 def to_unit():
@@ -40,7 +40,7 @@ def to_mag_and_direction():
     angle = atan2(v[1], v[0]) # angle as radians
 
     print("angle:\n  " + str(degrees(angle)) + " deg\n  " + str(angle) + " rad")
-    print("magnitude: " + str(sqrt(v[0]**2 + v[1]**2)))
+    print("magnitude: " + str(__get_mag(v)))
 
 
 def cross():
