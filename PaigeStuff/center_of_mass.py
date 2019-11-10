@@ -1,4 +1,4 @@
-from input_handler import __input_eval as enput, __input_list as enput_list
+from input_handler import __input_eval as enput, __input_list_eval as linput
 
 
 def __combine_com(dense = False):
@@ -7,7 +7,7 @@ def __combine_com(dense = False):
     objs_mass = []
 
     for _ in range(0, num_objs):
-        coords = enput_list("coordinates of object: ", float)
+        coords = linput("coordinates of object: ", float)
         if not dense:
             mass = enput("mass of object: ", float)
         else:

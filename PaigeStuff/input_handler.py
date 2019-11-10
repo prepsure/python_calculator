@@ -11,15 +11,15 @@ def __eval_that(data, t):
     return t(data)
 
 
+# out is the message right before the input
+# t is the type the inputs should be cast as
 def __input_eval(out, t):
-    # out is the message right before the input
-    # t is the type the inputs should be cast as
     return __eval_that(input(out), t)
 
 
-def __input_list(out, t):
-    # out is the message right before the input for each repetition
-    # t is the type the inputs should be cast as
+# out is the message right before the input for each repetition
+# t is the type the inputs should be cast as
+def __input_list_eval(out, t):
     given_list = []
     for n in input(out).split(__splitter):
         given_list.append(__eval_that(n, t))

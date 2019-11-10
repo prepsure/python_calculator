@@ -1,14 +1,14 @@
-from math import pi, radians, degrees, cos, sin, atan2, sqrt
-from input_handler import __input_eval as enput, __input_list as enput_list
+from math import pi, radians, degrees, cos, sin, acos, atan2, sqrt
+from input_handler import __input_eval as enput, __input_list_eval as linput
 
 
 def __enter_unit_vector():
-    return enput_list("enter vector: ", float)
+    return linput("enter vector: ", float)
 
 
 def __enter_mag_and_angle():
     angle = enput("enter angle: ", float)
-    if angle - 0.01 >= 2 * pi or angle + 0.01 <= -2 * pi:  # comparing floats with an accuracy of 0.01
+    if angle - 0.01 >= 2 * pi or angle + 0.01 <= -2 * pi: # comparing floats with an accuracy of 0.01
         angle = radians(angle)
         print("assuming degrees")
     else:
@@ -27,6 +27,10 @@ def __enter_vector():
         return __enter_mag_and_angle()
 
 
+def __get_mag(v):
+    return sqrt(v[0]**2 + v[1]**2)
+
+
 def to_unit():
     print(__enter_mag_and_angle())
 
@@ -36,7 +40,7 @@ def to_mag_and_direction():
     angle = atan2(v[1], v[0]) # angle as radians
 
     print("angle:\n  " + str(degrees(angle)) + " deg\n  " + str(angle) + " rad")
-    print("magnitude: " + str(sqrt(v[0]**2 + v[1]**2)))
+    print("magnitude: " + str(__get_mag(v)))
 
 
 def cross():
@@ -50,13 +54,23 @@ def cross():
     print(crossed)
 
 
+def __get_dot(v1, v2):
+    return sum(v1[i] * v2[i] for i in range(max(len(v1), len(v2))))
+
+
 def dot():
     v1 = __enter_vector()
     v2 = __enter_vector()
+    print(__get_dot(v1, v2))
 
-    dotted = sum(v1[i] * v2[i] for i in range(max(len(v1), len(v2))))
 
-    print(dotted)
+def angle_between():
+    v1 = __enter_vector()
+    v2 = __enter_vector()
+    dot = __get_dot(v1, v2)
+    angle = acos(dot/(__get_mag(v1) * __get_mag(v2)))
+    print("in radians: " + str(angle))
+    print("in degrees: " + str(degrees(angle)))
 
 
 def add_vectors():
