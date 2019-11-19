@@ -6,7 +6,7 @@ def __enter_unit_vector():
     return linput("enter vector: ", float)
 
 
-def __enter_mag_and_angle():
+def __enter_polar():
     angle = enput("enter angle: ", float)
     if angle - 0.01 >= 2 * pi or angle + 0.01 <= -2 * pi: # comparing floats with an accuracy of 0.01
         angle = radians(angle)
@@ -20,11 +20,11 @@ def __enter_mag_and_angle():
 
 
 def __enter_vector():
-    choice = input("press 1 for unit vector\n2 for mag and direction:\n")
+    choice = input("press 1 for a unit vector\n      2 for a polar vector\n")
     if choice == "1":
         return __enter_unit_vector()
     else:
-        return __enter_mag_and_angle()
+        return __enter_polar()
 
 
 def __get_mag(v):
@@ -32,7 +32,7 @@ def __get_mag(v):
 
 
 def to_unit():
-    print(__enter_mag_and_angle())
+    print(__enter_polar())
 
 
 def to_mag_and_direction():
@@ -46,6 +46,10 @@ def to_mag_and_direction():
 def cross():
     v1 = __enter_vector()
     v2 = __enter_vector()
+
+    for v in [v1, v2]:
+        while len(v) < 3:
+            v.append(0)
 
     crossed = [v1[1] * v2[2] - v1[2] * v2[1],
                v1[2] * v2[0] - v1[0] * v2[2],
