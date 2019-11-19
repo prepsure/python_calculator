@@ -28,7 +28,7 @@ def __enter_vector():
 
 
 def __get_mag(v):
-    return sqrt(v[0]**2 + v[1]**2)
+    return sqrt(sum(i ** 2 for i in v))
 
 
 def to_unit():
