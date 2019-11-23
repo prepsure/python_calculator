@@ -2,7 +2,7 @@
 Rotational Inertias:
 Hoop about a central axis: I = mr^2
 Solid Cylinder (or Disk) about a central axis: I = 1/2 mr^2
-Thin Rod about an axis through the center perpendicular to the diameter: I = 1/12 ml^2
+Thin Rod about a central axis: I = 1/12 ml^2
 Solid Sphere about a diameter: I = 2/5 mr^2
 Spherical Shell about a diameter: I = 2/3 mr^2
 
