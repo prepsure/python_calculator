@@ -1,6 +1,9 @@
 from math import radians, sqrt, degrees, atan2, sin, cos, acos
 from input_handler import __input_eval as enput, __input_list_eval as linput
-
+"""
+DEPRECATED
+NOT IN USE
+"""
 
 def __prompta(o):
     a = enput(o, str)

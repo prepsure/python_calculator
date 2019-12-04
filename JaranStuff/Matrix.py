@@ -20,15 +20,18 @@ def cum_sum():
     print(m)
 
 
-def det():
-    m = __enter_matrix()
+def det(m=None):
+    if not m:
+        m = __enter_matrix()
     if len(m) == 2:
         r = m[0][0] * m[1][1] - m[0][1] * m[1][0]
         print(r)
+        return r
     elif len(m) == 3:
         r = m[0][0] * (m[1][1] * m[2][2] - m[1][2] * m[2][1]) - m[0][1] * (m[1][0] * m[2][2] - m[2][0] * m[1][2]) + \
             m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0])
         print(r)
+        return r
 
 
 def rref():

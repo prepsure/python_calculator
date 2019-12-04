@@ -1,6 +1,8 @@
 from math import cos, sin, radians, atan2, degrees, sqrt, acos
 from input_handler import __input_eval as enput, __input_list_eval as linput
 
+__angles = {"N": 90, "S": 270, "E": 0, "W": 180, "NE": 45, "NW": 135, "SE": 315, "SW": 225}
+
 
 def __enter_vector(o):
     return linput(o, float)
@@ -42,26 +44,39 @@ def angle(m1=None, m2=None):
     mag1 = __find_mag(m1)
     mag2 = __find_mag(m2)
     d = dot(m1, m2)
-    return degrees(acos(d / (mag1 * mag2)))
+    print("Angle: %f" % degrees(acos(d / (mag1 * mag2))))
 
 
 def __prompta(o):
     a = enput(o, str)
-    angles = {"N": 90, "S": 270, "E": 0, "W": 180, "NE": 45, "NW": 135, "SE": 315, "SW": 225}
     try:
-        return float(angles[a.upper()])
+        return float(__angles[a.upper()])
     except:
-        return float(eval(a))
+        return float(a)
 
 
 def __printv(M):
     return "<%fi + %fj + %fk>" % (M[0], M[1], M[2] if len(M) == 3 else 0)
 
 
-def __give_angles(y, x):
-    a = degrees(atan2(y, x))
-    return "%f° or %f°" % (a, a + 360 if a < 0 else a - 360)
-
-
 def __find_mag(M):
     return sqrt(sum(i ** 2 for i in M))
+
+
+def __to_polar(m, a):
+    return [m * cos(radians(a)), m * sin(radians(a))]
+
+
+def inf():
+  n = enput("Number of Vectors:", int)
+  t = enput("Type of Vector:", str).lower()
+  c, s = 0, [0, 0, 0]
+  while c < n:
+    if t == "u" or t == "v":
+      m = __enter_vector("Enter Vector")
+    else:
+      m = __to_polar(enput("Enter Mag:", float), __prompta("Enter Angle:"))
+    for i in range(len(m)):
+      s[i] += m[i]
+    c+=1
+  return __printv(m)
