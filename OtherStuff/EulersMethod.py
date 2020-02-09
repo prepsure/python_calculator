@@ -11,7 +11,7 @@ def euler_step(dy_dx, initial_x, initial_y, steps, delta_x=0.00001, silent=False
 
     Example: Given dy/dx = 2y, y(0) = 1/2, do 5 steps of Euler's method
     ```
-    euler_step(lambda x,y: 2*y, 0, 0.5, 5, 0.1)
+    euler_step("2*y", 0, 0.5, 5, 0.1)
     ```
     """
     x = initial_x
@@ -36,7 +36,7 @@ def euler(dy_dx, initial_x, initial_y, final_x, delta_x=0.00001, silent=False):
 
     Example: Given dy/dx = 2y, y(0) = 1/2, estimate y(1/2)
     ```
-    euler(lambda x,y: 2*y, 0, 0.5, 0.5, 0.1)
+    euler("2*y", 0, 0.5, 0.5, 0.1)
     ```
     """
     return euler_step(dy_dx, initial_x, initial_y, ceil((final_x - initial_x) / delta_x), delta_x, silent)
@@ -44,12 +44,7 @@ def euler(dy_dx, initial_x, initial_y, final_x, delta_x=0.00001, silent=False):
 
 def friendly_euler(silent=False):
     """
-    Like euler_step, but continues Euler's method until `final_x` is reached. 
-
-    Example: Given dy/dx = 2y, y(0) = 1/2, estimate y(1/2)
-    ```
-    euler(lambda x,y: 2*y, 0, 0.5, 0.5, 0.1)
-    ```
+    Like euler, is more friendly
     """
 
     dy_dx = input("dy_dx: ")
