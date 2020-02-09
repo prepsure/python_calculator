@@ -40,7 +40,7 @@ def euler(dy_dx, initial_x, initial_y, final_x, delta_x=0.00001, silent=False):
     euler("2*y", 0, 0.5, 0.5, 0.1)
     ```
     """
-    return euler_step(dy_dx, initial_x, initial_y, ceil((final_x - initial_x) / delta_x), delta_x, silent)
+    return __euler_step(dy_dx, initial_x, initial_y, ceil((final_x - initial_x) / delta_x), delta_x, silent)
 
 
 def friendly_euler(silent=False):
@@ -53,4 +53,4 @@ def friendly_euler(silent=False):
     initial_y = enput("y(" + str(initial_x) + "): ", float)
     final_x = enput("final x value: ", float)
     delta_x = enput("delta x: ", float)
-    return euler_step(dy_dx, initial_x, initial_y, ceil((final_x - initial_x) / delta_x), delta_x, silent)
+    return __euler_step(dy_dx, initial_x, initial_y, ceil((final_x - initial_x) / delta_x), delta_x, silent)
