@@ -2,7 +2,7 @@ from math import ceil
 from input_handler import __input_eval as enput
 
 
-def euler_step(dy_dx, initial_x, initial_y, steps, delta_x=0.00001, silent=False):
+def __euler_step(dy_dx, initial_x, initial_y, steps, delta_x=0.00001, silent=False):
     """
     Performs `steps` steps of Euler's Method, starting at (`initial_x`, 
     `initial_y`). `dy_dx` is a function that takes 2 arguments, `x` and `y`. 
