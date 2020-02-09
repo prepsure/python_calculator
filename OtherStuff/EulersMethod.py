@@ -1,4 +1,5 @@
 from math import ceil
+from input_handler import __input_eval as enput
 
 
 def euler_step(dy_dx, initial_x, initial_y, steps, delta_x=0.00001, silent=False):
@@ -18,7 +19,7 @@ def euler_step(dy_dx, initial_x, initial_y, steps, delta_x=0.00001, silent=False
     if not silent:
         print("x, y, dy/dx, deltaY, new y")
     for _ in range(steps):
-        dy_dx_at_x = dy_dx(x, y)
+        dy_dx_at_x = eval(dy_dx)
         delta_y = dy_dx_at_x * delta_x
         new_y = y + delta_y
         if not silent:
@@ -38,4 +39,22 @@ def euler(dy_dx, initial_x, initial_y, final_x, delta_x=0.00001, silent=False):
     euler(lambda x,y: 2*y, 0, 0.5, 0.5, 0.1)
     ```
     """
+    return euler_step(dy_dx, initial_x, initial_y, ceil((final_x - initial_x) / delta_x), delta_x, silent)
+
+
+def friendly_euler(silent=False):
+    """
+    Like euler_step, but continues Euler's method until `final_x` is reached. 
+
+    Example: Given dy/dx = 2y, y(0) = 1/2, estimate y(1/2)
+    ```
+    euler(lambda x,y: 2*y, 0, 0.5, 0.5, 0.1)
+    ```
+    """
+
+    dy_dx = input("dy_dx: ")
+    initial_x = enput("xi: ", float)
+    initial_y = enput("y(" + str(initial_x) + "): ", float)
+    final_x = enput("final x value: ", float)
+    delta_x = enput("delta x: ", float)
     return euler_step(dy_dx, initial_x, initial_y, ceil((final_x - initial_x) / delta_x), delta_x, silent)
