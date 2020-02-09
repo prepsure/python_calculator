@@ -45,7 +45,7 @@ def euler(dy_dx, initial_x, initial_y, final_x, delta_x=0.00001, silent=False):
 
 def friendly_euler(silent=False):
     """
-    Like euler, is more friendly
+    Like euler, but more friendly
     """
 
     dy_dx = input("dy_dx: ")
