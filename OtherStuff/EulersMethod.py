@@ -19,7 +19,8 @@ def euler_step(dy_dx, initial_x, initial_y, steps, delta_x=0.00001, silent=False
     if not silent:
         print("x, y, dy/dx, deltaY, new y")
     for _ in range(steps):
-        dy_dx_at_x = eval(dy_dx)
+        # micropy on the numworks calculator is broken, as seen below
+        dy_dx_at_x = eval(dy_dx.replace('x', str(x)).replace('y', str(y)))
         delta_y = dy_dx_at_x * delta_x
         new_y = y + delta_y
         if not silent:
