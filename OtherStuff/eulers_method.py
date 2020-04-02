@@ -1,4 +1,4 @@
-from math import ceil
+from math import *
 from input_handler import __input_eval as enput
 
 
